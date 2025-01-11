@@ -1,0 +1,17 @@
+node_modules/
+dist/
+build/
+coverage/
+*.min.js
+*.bundle.js
+*.log
+
+package.json
+package-lock.json
+
+eslint.config.mjs
+tailwind.config.ts
+tsconfig.json
+next.config.ts
+components.json
+components/ui/
