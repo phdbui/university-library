@@ -24,6 +24,7 @@ import { FIELD_NAMES, FIELD_TYPES } from '@/constants';
 import { Input } from './ui/input';
 import { Button } from './ui/button';
 import Link from 'next/link';
+import FileUpload from './FileUpload';
 
 interface AuthFormProps<T extends FieldValues> {
   schema: ZodType<T>;
@@ -95,15 +96,14 @@ const AuthForm = <T extends FieldValues>({
                   </FormLabel>
                   <FormControl>
                     {field.name === 'universityCard' ? (
-                      // <FileUpload
-                      //   type="image"
-                      //   accept="image/*"
-                      //   placeholder="Upload your ID"
-                      //   folder="ids"
-                      //   variant="dark"
-                      //   onFileChange={field.onChange}
-                      // />
-                      <p>File Upload</p>
+                      <FileUpload
+                        type="image"
+                        accept="image/*"
+                        placeholder="Upload your ID"
+                        folder="ids"
+                        variant="dark"
+                        onFileChange={field.onChange}
+                      />
                     ) : (
                       <Input
                         required
