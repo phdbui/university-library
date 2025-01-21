@@ -7,6 +7,8 @@ import { Avatar, AvatarFallback } from './ui/avatar';
 import { Session } from 'next-auth';
 import { usePathname } from 'next/navigation';
 import { cn, getInitials } from '@/lib/utils';
+// import { signOut } from '@/auth';
+// import { Button } from './ui/button';
 
 const Header = ({ session }: { session: Session }) => {
   const pathname = usePathname();
@@ -39,6 +41,19 @@ const Header = ({ session }: { session: Session }) => {
             </Avatar>
           </Link>
         </li>
+
+        {/* <li>
+          <form
+            action={async () => {
+              'use server';
+
+              await signOut();
+            }}
+            className="mb-10"
+          >
+            <Button>Logout</Button>
+          </form>
+        </li> */}
       </ul>
     </header>
   );
