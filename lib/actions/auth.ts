@@ -8,6 +8,8 @@ import { hash } from 'bcryptjs';
 import { headers } from 'next/headers';
 import ratelimit from '../ratelimit';
 import { redirect } from 'next/navigation';
+import { workflowClient } from '../workflow';
+import config from '../config';
 
 export const signInWithCredentials = async (
   // eslint-disable-next-line no-undef
@@ -76,13 +78,13 @@ export const signUp = async (params: AuthCredentials) => {
       universityCard,
     });
 
-    // await workflowClient.trigger({
-    //   url: `${config.env.prodApiEndpoint}/api/workflows/onboarding`,
-    //   body: {
-    //     email,
-    //     fullName,
-    //   },
-    // });
+    await workflowClient.trigger({
+      url: `${config.env.prodApiEndpoint}/api/workflows/onboarding`,
+      body: {
+        email,
+        fullName,
+      },
+    });
 
     await signInWithCredentials({ email, password });
 
